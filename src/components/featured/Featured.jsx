@@ -4,7 +4,7 @@ import berlinImage from "../../assets/hotel/berlin.jpg";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=berlin,madrid,london"
+    "/api/hotels/countByCity?cities=berlin,madrid,london"
   );
 
   return (
