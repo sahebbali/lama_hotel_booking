@@ -1,9 +1,16 @@
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading, error, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(user);
+  const handelLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user"); // ✅ Clear storage
+    navigate("/");
+  };
 
   return (
     <div className="navbar">
@@ -32,12 +39,10 @@ const Navbar = () => {
         {user && (
           <div className="navItems">
             <span className="navButton">{user.username}</span>
-            <Link
-              to="/logout"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              <button className="navButton">Logout</button>
-            </Link>
+
+            <button onClick={handelLogout} className="navButton">
+              Logout
+            </button>
           </div>
         )}
       </div>

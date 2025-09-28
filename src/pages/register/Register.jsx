@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
+import { registerUser } from "../../components/action/action";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -31,7 +32,7 @@ const Register = () => {
     setError(null);
 
     try {
-      await axios.post("/auth/register", user); // API endpoint
+      await registerUser(user); // API endpoint
       alert("Registration successful!");
       navigate("/login");
     } catch (err) {
