@@ -1,69 +1,106 @@
+/* ---------- Header ---------- */
 .header {
-  background-color: #003580;
-  color: white;
+  background: linear-gradient(135deg, #004aad, #003580);
+  color: #fff;
   display: flex;
   justify-content: center;
   position: relative;
+  padding-bottom: 80px;
 }
 
+/* ---------- Container ---------- */
 .headerContainer {
   width: 100%;
-  max-width: 1024px;
-  margin: 20px 0px 100px 0px;
+  max-width: 1100px;
+  margin-top: 30px;
 }
 
 .headerContainer.listMode {
-  margin: 20px 0px 0px 0px;
+  margin-bottom: 0;
 }
 
+/* ---------- Nav list ---------- */
 .headerList {
   display: flex;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  justify-content: center;
 }
 
 .headerListItem {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.headerListItem:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .headerListItem.active {
-  border: 1px solid white;
-  padding: 10px;
-  border-radius: 20px;
+  background: #0071c2;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 113, 194, 0.3);
+}
+
+/* ---------- Text ---------- */
+.headerTitle {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .headerDesc {
-  margin: 20px 0px;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 600px;
+  font-size: 1rem;
+  color: #dfe6f2;
+  line-height: 1.6;
 }
 
+/* ---------- Buttons ---------- */
 .headerBtn {
-  background-color: #0071c2;
-  color: white;
-  font-weight: 500;
+  background: #febb02;
+  color: #003580;
+  font-weight: 600;
+  padding: 10px 20px;
   border: none;
-  padding: 10px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
+.headerBtn:hover {
+  background: #f5a623;
+  transform: scale(1.05);
+}
+
+/* ---------- Search bar ---------- */
 .headerSearch {
-  height: 30px;
-  background-color: white;
-  border: 3px solid #febb02;
+  background: #fff;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 0px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: absolute;
-  bottom: -25px;
-  width: 100%;
-  max-width: 1024px;
+  bottom: -35px;
+  width: 95%;
+  max-width: 1050px;
+  gap: 15px;
 }
 
 .headerIcon {
-  color: lightgray;
+  color: #777;
+  font-size: 1.2rem;
 }
 
 .headerSearchItem {
@@ -75,54 +112,95 @@
 .headerSearchInput {
   border: none;
   outline: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 5px;
+  width: 200px;
 }
 
 .headerSearchText {
-  color: lightgray;
+  color: #555;
   cursor: pointer;
+  font-weight: 500;
 }
 
+/* ---------- Date picker ---------- */
 .date {
   position: absolute;
-  top: 50px;
-  z-index: 2;
+  top: 60px;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
 }
 
+/* ---------- Options dropdown ---------- */
 .options {
-  z-index: 2;
+  z-index: 3;
   position: absolute;
-  top: 50px;
-  background-color: white;
-  color: gray;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  top: 60px;
+  background: #fff;
+  color: #555;
+  border-radius: 10px;
+  width: 220px;
+  padding: 10px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .optionItem {
-  width: 200px;
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  align-items: center;
+  margin: 12px 20px;
+  font-size: 0.95rem;
 }
 
 .optionCounter {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
-  color: black;
+  font-weight: 600;
 }
 
 .optionCounterButton {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 1px solid #0071c2;
   color: #0071c2;
+  background: transparent;
   cursor: pointer;
-  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.optionCounterButton:hover:not(:disabled) {
+  background: #0071c2;
+  color: #fff;
 }
 
 .optionCounterButton:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .headerTitle {
+    font-size: 1.8rem;
+  }
+
+  .headerSearch {
+    flex-direction: column;
+    gap: 15px;
+    bottom: -80px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .headerSearchInput {
+    width: 100%;
+  }
+
+  .options {
+    top: 90px;
+  }
 }
