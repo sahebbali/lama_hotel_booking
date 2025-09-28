@@ -11,10 +11,33 @@ const Navbar = () => {
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <span className="logo">lamabooking</span>
         </Link>
-        {user ? user.username : (
+        {user ? (
+          user.username
+        ) : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <Link
+              to="/register"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button className="navButton">Register</button>
+            </Link>
+            <Link
+              to="/login"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button className="navButton">Login</button>
+            </Link>
+          </div>
+        )}
+        {user && (
+          <div className="navItems">
+            <span className="navButton">{user.username}</span>
+            <Link
+              to="/logout"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button className="navButton">Logout</button>
+            </Link>
           </div>
         )}
       </div>
