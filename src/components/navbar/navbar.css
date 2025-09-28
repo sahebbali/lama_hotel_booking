@@ -1,27 +1,99 @@
-.navbar{
-  height: 50px;
-  background-color: #003580;
+/* ---------- Navbar container ---------- */
+.navbar {
+  height: 65px;
+  background: linear-gradient(135deg, #003580, #004aad);
   display: flex;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
-  max-width: 1024px;
-  color: white;
+  max-width: 1100px;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
 }
 
-.logo{
+/* ---------- Logo ---------- */
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoImg {
+  height: 38px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.logoText {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Nav items ---------- */
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ---------- Buttons ---------- */
+.navButton {
+  padding: 6px 16px;
+  border-radius: 6px;
   font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
 }
 
-.navButton{
-  margin-left: 20px;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+.loginBtn {
+  background-color: #febb02;
   color: #003580;
+}
+
+.logoutBtn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.navButton:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ---------- User welcome text ---------- */
+.welcomeText {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 15px;
+  }
+
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .navButton {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+  }
+
+  .welcomeText {
+    display: none; /* hide welcome text on small screens */
+  }
 }
